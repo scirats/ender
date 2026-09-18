@@ -11,7 +11,7 @@ pub fn provision(config: &AppConfig, java_path: &Path) -> AppResult<PathBuf> {
 
     let instance_cfg = instance.join("instance.cfg");
     let instance_content = format!(
-        "InstanceType=OneSix\nname=Ender CLI\niconKey=default\nOverrideJava=true\nOverrideJavaLocation={}\n",
+        "InstanceType=OneSix\nname=Ender\niconKey=default\nOverrideJava=true\nOverrideJavaLocation={}\n",
         java_path.display()
     );
     fs::write(&instance_cfg, instance_content)
@@ -53,7 +53,7 @@ pub fn instance_path(config: &AppConfig) -> PathBuf {
         .clone()
         .unwrap_or_else(default_prism_root)
         .join("instances")
-        .join("maincraft")
+        .join("ender")
 }
 
 fn default_prism_root() -> PathBuf {

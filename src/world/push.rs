@@ -19,7 +19,7 @@ pub async fn run(config: &AppConfig) -> AppResult<()> {
     let remote_config = crate::drive::files::ensure_structure(config).await?;
     if !crate::drive::files::can_write(&remote_config, &["backups"]).await? {
         return Err(AppError::Configuration(
-            "the authenticated Google Drive user cannot write to the shared Ender CLI folder"
+            "the authenticated Google Drive user cannot write to the shared Ender folder"
                 .to_owned(),
         ));
     }

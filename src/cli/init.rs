@@ -92,7 +92,7 @@ pub async fn run(config: &AppConfig) -> AppResult<()> {
         }
     }
 
-    println!("Ender CLI is initialized at {}", config.root.display());
+    println!("Ender is initialized at {}", config.root.display());
     Ok(())
 }
 

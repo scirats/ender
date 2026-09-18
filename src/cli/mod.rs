@@ -11,7 +11,7 @@ pub mod world;
 
 #[derive(Debug, Parser)]
 #[command(
-    name = "ender-cli",
+    name = "ender",
     version,
     about = "Manage a local Minecraft NeoForge installation"
 )]

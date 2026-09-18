@@ -19,7 +19,7 @@ pub async fn ensure_structure(config: &AppConfig) -> AppResult<AppConfig> {
     let hub = client::connect(&config).await?;
     let root = match config.drive_folder_id.clone() {
         Some(id) if is_folder(&hub, &id).await? => id,
-        _ => find_or_create_folder(&hub, "maincraft", None).await?,
+        _ => find_or_create_folder(&hub, "ender", None).await?,
     };
     config.drive_folder_id = Some(root.clone());
     let server = find_or_create_folder(&hub, "server", Some(&root)).await?;

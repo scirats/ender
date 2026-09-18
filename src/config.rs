@@ -6,7 +6,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::error::{AppError, AppResult};
 
-const APP_DIRECTORY: &str = "maincraft";
+const APP_DIRECTORY: &str = "ender";
 const CONFIG_FILE: &str = "config.toml";
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
