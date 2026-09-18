@@ -1,6 +1,6 @@
-# Maincraft
+# Ender CLI
 
-Maincraft is a cross-platform CLI for managing a local Minecraft NeoForge installation with Prism Launcher and Google Drive storage.
+Ender CLI is a cross-platform command-line tool for managing a local Minecraft NeoForge installation with Prism Launcher and Google Drive storage.
 
 ## Current Scope
 
@@ -18,33 +18,35 @@ Maincraft is a cross-platform CLI for managing a local Minecraft NeoForge instal
 ## Usage
 
 ```text
-maincraft init
-maincraft status
-maincraft auth login
-maincraft server install
-maincraft server configure
-maincraft server start
-maincraft server stop
-maincraft server status
-maincraft server push
-maincraft server pull
-maincraft world push
-maincraft world pull
-maincraft client install
-maincraft client push
-maincraft client pull
+ender-cli init
+ender-cli status
+ender-cli auth login
+ender-cli server install
+ender-cli server configure
+ender-cli server start
+ender-cli server stop
+ender-cli server status
+ender-cli server push
+ender-cli server pull
+ender-cli world push
+ender-cli world pull
+ender-cli client install
+ender-cli client push
+ender-cli client pull
 ```
 
-Use `--root PATH` to select the local Maincraft directory.
+Use `--root PATH` to select the local Ender CLI directory.
 
 ```text
-maincraft --root PATH init
+ender-cli --root PATH init
 ```
 
 ## Initialization
 
 `init` creates the local directory structure and a default manifest when they do not exist. Existing manifests are preserved. The command does not create or replace a world.
 
-Place a Google OAuth desktop client secret at `client_secret.json` inside the Maincraft root before running `maincraft auth login`. The authenticated account must have access to the shared `maincraft` folder. A writable account can create backups; a read-only account can pull resources but cannot upload backups.
+Existing installations keep their legacy local directory, Prism instance directory and Google Drive folder identifiers so worlds, mods and backups are not lost during the rename.
+
+Place a Google OAuth desktop client secret at `client_secret.json` inside the Ender CLI root before running `ender-cli auth login`. The authenticated account must have access to the shared folder. A writable account can create backups; a read-only account can pull resources but cannot upload backups.
 
 The first writable account creates the remote folder structure and uploads the manifest. `server push` and `client push` validate the local mod hashes and update the shared manifest with the files. Other accounts use the existing shared folder and download the manifest and resources.

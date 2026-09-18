@@ -92,7 +92,7 @@ pub async fn run(config: &AppConfig) -> AppResult<()> {
         }
     }
 
-    println!("Maincraft is initialized at {}", config.root.display());
+    println!("Ender CLI is initialized at {}", config.root.display());
     Ok(())
 }
 

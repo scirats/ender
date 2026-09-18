@@ -1,9 +1,14 @@
 [package]
-name = "maincraft"
+name = "ender-cli"
 version = "0.1.0"
 edition = "2024"
 description = "A cross-platform Minecraft NeoForge manager"
 license = "MIT"
+repository = "https://github.com/scirats/ender-cli"
+homepage = "https://github.com/scirats/ender-cli"
+readme = "README.md"
+keywords = ["minecraft", "neoforge", "prism-launcher", "server", "cli"]
+categories = ["command-line-utilities", "games"]
 
 [dependencies]
 clap = { version = "4.5", features = ["derive"] }

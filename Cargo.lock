@@ -500,6 +500,35 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d0881ea181b1df73ff77ffaaf9c7544ecc11e82fba9b5f27b262a3c73a332555"
 
 [[package]]
+name = "ender-cli"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "directories",
+ "dirs",
+ "flate2",
+ "futures-util",
+ "google-drive3",
+ "hex",
+ "http-body-util",
+ "mime",
+ "quick-xml",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "sha2",
+ "sysinfo",
+ "tar",
+ "tempfile",
+ "thiserror",
+ "tokio",
+ "toml",
+ "yup-oauth2",
+ "zip",
+ "zstd",
+]
+
+[[package]]
 name = "equivalent"
 version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1185,35 +1214,6 @@ checksum = "c60a23ffb90d527e23192f1246b14746e2f7f071cb84476dd879071696c18a4a"
 dependencies = [
  "crc",
  "sha2",
-]
-
-[[package]]
-name = "maincraft"
-version = "0.1.0"
-dependencies = [
- "clap",
- "directories",
- "dirs",
- "flate2",
- "futures-util",
- "google-drive3",
- "hex",
- "http-body-util",
- "mime",
- "quick-xml",
- "reqwest",
- "serde",
- "serde_json",
- "sha2",
- "sysinfo",
- "tar",
- "tempfile",
- "thiserror",
- "tokio",
- "toml",
- "yup-oauth2",
- "zip",
- "zstd",
 ]
 
 [[package]]

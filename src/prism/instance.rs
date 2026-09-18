@@ -11,7 +11,7 @@ pub fn provision(config: &AppConfig, java_path: &Path) -> AppResult<PathBuf> {
 
     let instance_cfg = instance.join("instance.cfg");
     let instance_content = format!(
-        "InstanceType=OneSix\nname=Maincraft\niconKey=default\nOverrideJava=true\nOverrideJavaLocation={}\n",
+        "InstanceType=OneSix\nname=Ender CLI\niconKey=default\nOverrideJava=true\nOverrideJavaLocation={}\n",
         java_path.display()
     );
     fs::write(&instance_cfg, instance_content)
