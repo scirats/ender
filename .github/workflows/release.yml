@@ -46,7 +46,8 @@ jobs:
         run: |
           New-Item -ItemType Directory -Path staging | Out-Null
           Copy-Item "target/${{ matrix.target }}/release/ender.exe" staging/ender.exe
-          Compress-Archive -Path staging/ender.exe -DestinationPath "ender-${env:GITHUB_REF_NAME.Substring(1)}-${{ matrix.target }}.zip"
+          $version = $env:GITHUB_REF_NAME.TrimStart('v')
+          Compress-Archive -Path staging/ender.exe -DestinationPath "ender-$version-${{ matrix.target }}.zip"
       - uses: actions/upload-artifact@v4
         with:
           name: ender-${{ matrix.target }}
