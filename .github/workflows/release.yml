@@ -108,7 +108,8 @@ jobs:
             cd /dist
             su builder -c "makepkg --nodeps --noconfirm"
           '
-          rm dist/PKGBUILD
+          chown -R "$(id -u):$(id -g)" dist
+          rm dist/PKGBUILD dist/ender-debug-*.pkg.tar.zst
       - name: Publish GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
