@@ -55,8 +55,57 @@ Push a tag such as `v0.1.0` to start `.github/workflows/release.yml`. It builds 
 
 Release builds target Linux, Windows, and Apple Silicon macOS.
 
+### Linux x86_64
+
+```bash
+mkdir -p "$HOME/.local/bin"
+curl -fsSL https://github.com/scirats/ender/releases/download/v0.1.0/ender-0.1.0-x86_64-unknown-linux-gnu.tar.gz \
+  | tar -xz -C "$HOME/.local/bin"
+chmod +x "$HOME/.local/bin/ender"
+```
+
+Ensure `~/.local/bin` is in your `PATH`, then run:
+
+```bash
+ender --version
+```
+
 ### Arch Linux
 
 ```bash
 sudo pacman -U https://github.com/scirats/ender/releases/download/v0.1.0/ender-0.1.0-1-x86_64.pkg.tar.zst
+```
+
+### macOS Apple Silicon
+
+```bash
+mkdir -p "$HOME/.local/bin"
+curl -fsSL https://github.com/scirats/ender/releases/download/v0.1.0/ender-0.1.0-aarch64-apple-darwin.tar.gz \
+  | tar -xz -C "$HOME/.local/bin"
+chmod +x "$HOME/.local/bin/ender"
+```
+
+Ensure `~/.local/bin` is in your `PATH`, then run:
+
+```bash
+ender --version
+```
+
+### Windows x86_64
+
+Run in PowerShell:
+
+```powershell
+$installDir = "$HOME\bin\ender"
+$archive = "$env:TEMP\ender-0.1.0.zip"
+New-Item -ItemType Directory -Force -Path $installDir | Out-Null
+Invoke-WebRequest -Uri "https://github.com/scirats/ender/releases/download/v0.1.0/ender-0.1.0-x86_64-pc-windows-msvc.zip" -OutFile $archive
+Expand-Archive -Path $archive -DestinationPath $installDir -Force
+Remove-Item $archive
+```
+
+Add `$HOME\bin\ender` to your user `PATH`, open a new PowerShell window, and run:
+
+```powershell
+ender.exe --version
 ```
