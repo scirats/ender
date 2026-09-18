@@ -52,3 +52,5 @@ The first writable account creates the remote Ender folder structure and uploads
 ## Releases and packages
 
 Push a tag such as `v0.1.0` to start `.github/workflows/release.yml`. It builds archives for Linux, macOS, and Windows and publishes SHA256 checksums plus a ready-to-submit Scoop manifest. The package definitions in `packaging/` are templates for a Homebrew tap, AUR, and Scoop bucket; update their version and checksums for each release.
+
+Release builds target Linux, Windows, and Apple Silicon macOS.
