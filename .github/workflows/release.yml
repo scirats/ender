@@ -82,6 +82,33 @@ jobs:
             "autoupdate": { "architecture": { "64bit": { "url": "https://github.com/scirats/ender/releases/download/v\$version/ender-\$version-x86_64-pc-windows-msvc.zip" } } }
           }
           EOF
+      - name: Build Arch package
+        shell: bash
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          cat > dist/PKGBUILD <<EOF
+          pkgname=ender
+          pkgver=${version}
+          pkgrel=1
+          pkgdesc='Cross-platform Minecraft NeoForge manager'
+          arch=('x86_64')
+          url='https://github.com/scirats/ender'
+          license=('MIT')
+          depends=('glibc')
+          source=("ender-${version}-x86_64-unknown-linux-gnu.tar.gz")
+          sha256sums=('SKIP')
+
+          package() {
+            install -Dm755 "ender" "\${pkgdir}/usr/bin/ender"
+          }
+          EOF
+          docker run --rm -v "$PWD/dist:/dist" archlinux:base-devel bash -c '
+            useradd --create-home builder
+            chown -R builder:builder /dist
+            cd /dist
+            su builder -c "makepkg --nodeps --noconfirm"
+          '
+          rm dist/PKGBUILD
       - name: Publish GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
