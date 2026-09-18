@@ -1,0 +1,26 @@
+pkgname=ender
+pkgver=0.1.0
+pkgrel=1
+pkgdesc='Cross-platform Minecraft NeoForge manager'
+arch=('x86_64')
+url='https://github.com/scirats/ender'
+license=('MIT')
+makedepends=('cargo')
+source=("git+https://github.com/scirats/ender.git#tag=v${pkgver}")
+sha256sums=('SKIP')
+
+prepare() {
+  cd "${srcdir}/${pkgname}"
+  cargo fetch --locked
+}
+
+build() {
+  cd "${srcdir}/${pkgname}"
+  cargo build --release --locked
+}
+
+package() {
+  cd "${srcdir}/${pkgname}"
+  install -Dm755 "target/release/${pkgname}" "${pkgdir}/usr/bin/${pkgname}"
+  install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}

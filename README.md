@@ -48,3 +48,7 @@ ender --root PATH init
 Place a Google OAuth desktop client secret at `client_secret.json` inside the Ender root before running `ender auth login`. The authenticated account must have access to the shared Ender folder. A writable account can create backups; a read-only account can pull resources but cannot upload backups.
 
 The first writable account creates the remote Ender folder structure and uploads the manifest. `server push` and `client push` validate the local mod hashes and update the shared manifest with the files. Other accounts use the existing shared folder and download the manifest and resources.
+
+## Releases and packages
+
+Push a tag such as `v0.1.0` to start `.github/workflows/release.yml`. It builds archives for Linux, macOS, and Windows and publishes SHA256 checksums plus a ready-to-submit Scoop manifest. The package definitions in `packaging/` are templates for a Homebrew tap, AUR, and Scoop bucket; update their version and checksums for each release.

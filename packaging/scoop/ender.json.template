@@ -1,0 +1,23 @@
+{
+  "version": "0.1.0",
+  "description": "Cross-platform Minecraft NeoForge manager",
+  "homepage": "https://github.com/scirats/ender",
+  "license": "MIT",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/scirats/ender/releases/download/v0.1.0/ender-0.1.0-x86_64-pc-windows-msvc.zip",
+      "hash": "REPLACE_WITH_RELEASE_SHA256"
+    }
+  },
+  "bin": "ender.exe",
+  "checkver": {
+    "github": "https://github.com/scirats/ender"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/scirats/ender/releases/download/v$version/ender-$version-x86_64-pc-windows-msvc.zip"
+      }
+    }
+  }
+}
