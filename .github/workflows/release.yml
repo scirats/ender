@@ -102,13 +102,10 @@ jobs:
             install -Dm755 "ender" "\${pkgdir}/usr/bin/ender"
           }
           EOF
-          docker run --rm -v "$PWD/dist:/dist" archlinux:base-devel bash -c '
-            useradd --create-home builder
-            chown -R builder:builder /dist
+          docker run --rm --user "$(id -u):$(id -g)" -e HOME=/tmp -v "$PWD/dist:/dist" archlinux:base-devel bash -c '
             cd /dist
-            su builder -c "makepkg --nodeps --noconfirm"
+            makepkg --nodeps --noconfirm
           '
-          chown -R "$(id -u):$(id -g)" dist
           rm dist/PKGBUILD dist/ender-debug-*.pkg.tar.zst
       - name: Publish GitHub release
         env:
