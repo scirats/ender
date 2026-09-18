@@ -3,7 +3,7 @@ class Ender < Formula
   homepage "https://github.com/scirats/ender"
   url "https://github.com/scirats/ender/archive/refs/tags/v0.1.0.tar.gz"
   version "0.1.0"
-  sha256 "REPLACE_WITH_RELEASE_SOURCE_SHA256"
+  sha256 "6a0def9580113f2f407241af7c00811e43d247d4b6e72f87339ab697171d07a5"
   license "MIT"
 
   depends_on "rust" => :build
